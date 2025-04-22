@@ -65,7 +65,7 @@ You can test the `wxtrmnl-fetch.sh` script by running the following command to d
 A CRON job is the simplest way to run the Bash script at a set interval. Create a cron job by running:
 
 1. Run `crontab -e`.
-1. Append `*/15 * * * * /<path/to>/wxtrmnl/wxtrmnl-fetch.sh` to the bottom of the file.
+1. Append `*/10 * * * * /bin/bash -i -c 'source /home/<user>/.bashrc && /home/<user>/path/to/wxtrmnl/wxtrmnl-fetch.sh'` to the bottom of the file.
 1. Save the file.
 
 You can run `grep CRON /var/log/syslog` after 15 (or so) minutes to verify your CRON job is working. (**Note:** You will need `sudo` level permission to run this command.)
