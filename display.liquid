@@ -1,0 +1,136 @@
+<div class="layout layout--row">
+  <div class="grid grid--cols-3">
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{ rainfall.day }} {{ rainfall.unit}}
+      </p>
+      <p class="description">
+        Rainfall (24 HR)
+      </p>
+    </div>
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{ rainfall.month }} {{ rainfall.unit}}
+      </p>
+      <p class="description">
+        Rainfall (Month)
+      </p>
+    </div>
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{ rainfall.year }} {{ rainfall.unit}}
+      </p>
+      <p class="description">
+        Rainfall (Year)
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="layout layout--row">
+  <div class="grid grid--cols-3">
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{temp.current}} {{temp.unit}}
+      </p>
+      <p class="description">
+        Current Temperature
+      </p>
+    </div>
+    <div class="col--span-1 flex flex--row flex--center-y">
+      <img class="image-dither" src="https://openweathermap.org/img/wn/{{ icon }}@2x.png">
+      <p class="description clamp--3">
+        {{conditions}}
+      </p>
+    </div>
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{temp.heat_index}} {{temp.unit}}
+      </p>
+      <p class="description">
+        Heat Index
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="layout layout--row">
+  <div class="grid grid--cols-3">
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{wind.current.direction}}
+      </p>
+      <p class="title title--small text--gray-3">
+        @ {{wind.current.speed}} {{wind.current.unit}}
+      </p>
+      <p class="description">
+        Wind Speed
+      </p>
+    </div>
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{wind.gust.direction}}
+      </p>
+      <p class="title title--small text--gray-3">
+        @ {{wind.gust.speed}} {{wind.gust.unit}}
+      </p>
+      <p class="description">
+        Wind Gust
+      </p>
+    </div>
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{temp.wind_chill}} {{temp.unit}}
+      </p>
+      <p class="description">
+        Wind Chill
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="layout layout--row">
+  <div class="grid grid--cols-3">
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p>
+        <span class="label label--small label--outline">
+          Sunrise: {{ sun.rise_at }}
+        </span>
+      </p>
+      <p>
+        <span class="label label--small label--inverted">
+          Sunset: {{ sun.set_at }}
+        </span>
+      </p>
+    </div>
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{pressure.relative}}{{pressure.unit}}
+      </p>
+      <p class="title title--small text--gray-3">
+        {% if pressure.trend == 0 %} -- {% elsif  pressure.trend < 0 %} ↓ {{ pressure.trend | abs }} {% else %} ↑ {{ pressure.trend | abs }} {% endif %}
+      </p>
+      <p class="description">
+        Relative Pressure (& Trend)
+      </p>
+    </div>
+    <div class="col--span-1 flex flex--col flex--center-y">
+      <p class="value value--small" data-value-fit="true" data-value-fit-max-height="50">
+        {{humidity.value}} {{humidity.unit}}
+      </p>
+      <p class="description">
+        Humidity
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="title_bar">
+  <img class="image" src="/images/plugins/trmnl--render.svg" />
+  <span class="title">
+    {{name}}
+  </span>
+  <span class="instance">
+    {{datetime}}
+  </span>
+</div>
